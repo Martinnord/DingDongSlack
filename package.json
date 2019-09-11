@@ -1,0 +1,18 @@
+{
+  "name": "DingDonSlack",
+  "version": "1.0.0",
+  "description": "Your visitor will scan the generated QR-code then give you a notification on Slack",
+  "main": "index.js",
+  "author": "Martin Nordström <martin.nordstrom99@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "@babel/preset-env": "^7.6.0",
+    "nodemon": "^1.19.2"
+  }
+}
