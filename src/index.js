@@ -24,22 +24,14 @@ render(app, {
   debug: false
 });
 
-// routes
-router.post("/ding-dong", dingDong);
-router.get("/sit-tight", sitTight);
-
-async function sitTight(ctx) {
-  await ctx.render("sitTight");
-}
-
-async function dingDong(ctx) {
-  const body = ctx.request.body;
-
+function sendDingDong(msg) {
   const payload = {
     form: {
       token: process.env.SLACK_AUTH_TOKEN,
       channel: "#qopster-tests",
-      text: body.msg
+      text: msg,
+      username: "Ding Dong",
+      icon_emoji: ":bell:"
     }
   };
 
@@ -52,6 +44,21 @@ async function dingDong(ctx) {
     console.log("res", response);
     console.log("error", error);
   });
+}
+
+// routes
+router.post("/ding-dong", dingDong);
+router.get("/sit-tight", sitTight);
+
+async function sitTight(ctx) {
+  await ctx.render("sitTight");
+}
+
+async function dingDong(ctx) {
+  const body = ctx.request.body;
+
+  // send the ding dong
+  sendDingDong(body.msg);
 
   // redirect to confirm route
   ctx.redirect("/sit-tight");

@@ -1,5 +1,5 @@
 {
-  "name": "DingDonSlack",
+  "name": "DingDongSlack",
   "version": "1.0.0",
   "description": "Your visitor will scan the generated QR-code then give you a notification on Slack",
   "main": "index.js",
